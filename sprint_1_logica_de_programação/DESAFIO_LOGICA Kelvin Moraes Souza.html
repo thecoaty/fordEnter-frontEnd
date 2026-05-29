@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio da Sprint</title>
+</head>
+
+<body>
+    <script>
+        let valorPesquisado;
+
+        let distancia = 0.0;
+        do{
+            distancia = parseFloat(prompt("Qual a distância percorrida da sua casa até o seu trabalho (em km)?"));
+            if(Number.isNaN(distancia)){
+                alert("Digite um número válido!");
+            }
+
+        }while(Number.isNaN(distancia));
+
+        let consumoMedioVeiculo = 0.0;
+        do{
+            consumoMedioVeiculo = parseFloat(prompt("Qual o consumo médio do seu veículo (em km/L)?"));
+            if(Number.isNaN(consumoMedioVeiculo)){
+                alert("Digite um número válido!");
+            }
+        }while(Number.isNaN(consumoMedioVeiculo));
+
+        let postosPesquisados = 0;
+        do{
+            postosPesquisados = parseInt(prompt("Em quantos postos você pesquisou?"));
+            if(Number.isNaN(postosPesquisados)){
+                alert("Digite um número válido!");
+            }
+        }while(Number.isNaN(postosPesquisados));
+
+        let menorValor = 100.0;
+        let somaTotalValoresPesquisados = 0.0;
+        function Escreva(texto) {
+            document.write(texto);
+        }
+        function QuebrarLinha(){
+            document.write("<br>");
+        }
+
+        for (i = 1; i <= postosPesquisados; i++) {
+            do {
+                valorPesquisado = parseFloat(prompt(`Digite o valor encontrado (em R$) no posto ${i}:`));
+                if(Number.isNaN(valorPesquisado)){
+                    alert("Digite um número válido!");
+                }
+
+            } while (Number.isNaN(valorPesquisado));
+            
+            somaTotalValoresPesquisados += valorPesquisado;
+                //if achar o menor valor encontrado
+                if (valorPesquisado < menorValor) {
+                    menorValor = valorPesquisado;
+                }
+        
+        } 
+            let consumoNecessario = (distancia / consumoMedioVeiculo);
+            let media = (somaTotalValoresPesquisados/postosPesquisados);
+            let gastoDiario = 2*(consumoNecessario*menorValor);
+
+        Escreva(`O Consumo necessario em litros para o deslocamento da casa até o trabalho é ${consumoNecessario.toFixed([2])}L`);
+        QuebrarLinha();
+        Escreva(`O menor valor pesquisado é R$${menorValor.toFixed([2])}`);
+        QuebrarLinha();
+        Escreva(`A média dos valores pesquisados é ${media.toFixed([2])}`);
+        QuebrarLinha();
+        Escreva(`Gasto diario (ida e volta) é R$ ${gastoDiario.toFixed([2])}`);
+    </script>
+</body>
+
+</html>

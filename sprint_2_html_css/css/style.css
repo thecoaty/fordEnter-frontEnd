@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --cor-background: white;
+    --cor-primaria: #1351d8;
+    --cor-secundaria: #1b357e;
+    --border-conteudo: 2px solid #dddad3;
+    --fonte-principal: 'Montserrat', sans-serif;
+    --fonte-secundaria: 'Times New Roman', Times, serif;
+    --cor-conteudo: #E8E6E1;
+}
+
+body{
+    background-color: var(--cor-background);
+}
+header{
+    height: 5.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color : var(--cor-primaria);
+    border-radius: 0 0 5% 0;
+    box-shadow: 0px 2px 6px black;
+}
+.logoFord{
+    position: absolute;
+    margin-left: 10px;
+}
+.logoFord img{
+    height: 5rem;
+}
+
+.navLinks{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+.navLinks a{
+    font-family: var(--fonte-secundaria);
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    margin: 0 0.8rem;
+}
+.navLinks a:hover{
+    color: black;
+    background-color: var(--cor-secundaria);
+}
+
+main{
+    padding-top: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding-bottom: 65px;
+    flex-direction: column;
+
+}
+h1{
+    padding-top: 10px;
+    font-size: 2.3rem;
+    font-family: var(--fonte-principal);
+    color: var(--cor-secundaria);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+}
+.conteudo{
+    padding-top: 10px;
+    background-color: var(--cor-conteudo);
+    border: var(--border-conteudo);
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.conteudoDescricao{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.conteudoDescricao p {
+    padding: 10px;
+    border-radius: 25px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    width: 400px;
+}
+.conteudoDescricaoVideo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.conteudoDescricaoVideo p{
+    padding: 10px;
+    border-radius: 25px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    width: 600px;
+}
+.conteudoDescricaoRanger{
+    border: var(--border-conteudo);
+    font-weight: 600;
+}
+.conteudoDescricaoLancamentos{
+    width: 400px;
+    text-align: center;
+    font-family: var(--fonte-principal);
+    color: var(--cor-primaria);
+    font-weight: 600;
+}
+.conteudoDescricao p a{
+    background-color: var(--cor-primaria);
+    padding: 15px;
+    margin-left: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+}
+.conteudoDescricao p a:hover{
+    background-color: var(--cor-secundaria);
+}
+.conteudoImage{
+    width: 90%;
+    overflow: hidden;
+}
+.conteudoImage a img{
+    width: 110%;
+    box-shadow: 10px 5px 5px black;
+}
+
+.conteudoVideo{
+    width: 95%;
+    padding-bottom: 460px;
+    position: relative;
+}
+.conteudoVideo iframe{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+.conteudoLancamentos{
+    width: 100%;
+
+}
+.conteudoLancamentos-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+.lancamentosListItem{
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px;
+}
+.lancamentosListItemDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 25px;
+    h3{
+        font-family: var(--fonte-secundaria);
+        color: var(--cor-secundaria);
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+    p{
+        font-family: var(--fonte-secundaria);
+        border: none;
+        font-size: 1rem;
+        width: 200px;
+    }
+}
+.lancamentosListItemDiv input{
+    cursor: pointer;
+    transform: scale(1.7);
+    margin-right: 10px;
+}
+.lancamentoBotao{
+    background-color: var(--cor-primaria);
+    color: #E8E6E1;
+    font-size: 1.1rem;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+}
+.lancamentoBotao:hover{
+    background-color: var(--cor-secundaria);
+    cursor: pointer;
+}
+.formulario{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+form{
+    border-radius: 10px;
+    background-color: var(--cor-secundaria);
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12% 1rem; 
+}
+form h2{
+    margin-bottom: 5%;
+    font-family: var(--fonte-secundaria);
+    font-weight: 800;
+    color: #dddad3;
+    font-size: 2rem;
+}
+form input{
+    width: 100%;
+    height: 2rem;
+    border-radius: 5px;
+    border: none;
+}
+select{
+    text-align: center;
+    background-color: white;
+    height: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+form button{
+    width: 50%;
+    padding: 1rem;
+    margin: none;
+    margin-left: auto;
+    border: none;
+    border-radius: 15px;
+    font-family: var(--fonte-principal);
+    font-size: 1rem;
+}
+form button:hover{
+    cursor: pointer;
+    background-color: var(--cor-primaria);
+}
+#inputMSG{
+    text-align: start;
+    height: 5rem;
+}
+
+footer{
+    border-radius: 10% 0 0 0;
+    background-color: var(--cor-secundaria);
+    display: flex;
+    text-align: center;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+.redesFooter{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    color: white;
+    a img{
+    width: 32px;
+    }
+    a img:hover{
+        filter: invert(50%);
+    }
+    p{
+        width: 150px;
+    }
+
+}
+.copy{
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+.logoFooter{
+    position: absolute;
+    right: 1.4rem;
+}
+
+
+@media (max-width: 960px) {
+header{
+    height: 100%;
+    padding-bottom: 20px;
+    flex-direction: column;
+    gap: 5px;
+} 
+.logoFord{
+    padding-top: 10px;
+    position:static;
+}
+.conteudo{
+    width: 95%;
+}
+main{
+    padding-bottom: 11rem;
+}
+.conteudoLancamentos-container{
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    font-size: 2rem;
+}
+footer{
+    padding-top: 1.1rem;
+    height: 9rem;
+    flex-direction: column;
+
+}
+.redesFooter{
+    position: relative;
+}
+.copy{
+    position: relative;
+    padding: 0.5rem 0;
+}
+.logoFooter{
+    position: relative;
+    right: auto;
+    margin-bottom: 5px;
+}
+}
+
+@media (max-width: 450px){
+.lancamentosListItemDiv{
+    flex-direction: column;
+    gap: 15px;
+}
+.lancamentosListItemDiv span{
+    display: none;
+}
+form{
+    width: 90%;
+}
+}
