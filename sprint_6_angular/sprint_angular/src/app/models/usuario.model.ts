@@ -1,6 +1,5 @@
 export interface Usuario {
-  id: number | string
+  id: number;
   nome: string
   senha: string
-  email: string
 }
