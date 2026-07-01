@@ -6,17 +6,13 @@
         <div class="login-content">
         <img class="ford-logo" src="ford.png" alt="Logo da Ford">
 
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
             <label for="loginForm">Boas-vindas</label>
-            <input name="name" type="text" placeholder="Nome"  formControlName="name">
-            <input name="password" type="password" placeholder="Senha" formControlName="password">
-            @if (mensagemErro()) {
-                <div class="alert-error" style="color: red; margin-bottom: 15px;">
-                    {{ mensagemErro() }}
-                </div>
-            }
-            <button type="submit" [disabled]="loginForm.invalid || carregando()">
-                {{ carregando() ? 'Verificando...' : 'Entrar' }}
+            <input name="name" type="text" placeholder="Nome" [(ngModel)]="usuario.nome">
+            <input name="password" type="password" placeholder="Senha" [(ngModel)]="usuario.senha">
+            <p class="erro" *ngIf="mensagemErro">{{mensagemErro}}</p>
+            <button type="submit">
+                Entrar
             </button>
         </form>
         </div>

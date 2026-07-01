@@ -1,28 +1,33 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, signal, inject } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Usuario } from '../models/usuario.model';
 import { Observable, tap } from 'rxjs';
+import { Router } from '@angular/router';
+
+const usuario_key = "auth-user";
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private http = inject(HttpClient)
-  private apiUrl = 'http://localhost:3001/login';
 
-  private isAut = signal<Usuario | null>(null);
+  constructor(private router: Router){}
+  private http = inject(HttpClient)
+  private apiUrl = 'http://localhost:3001';
   
-  login(nome: string, senha: string): Observable<Usuario>{
-    return this.http.post<Usuario>(this.apiUrl,{nome, senha}).pipe(
-      tap((usuario)=>{
-        this.isAut.set(usuario);
+  login(usuario: Pick<Usuario, 'nome'|'senha'>): Observable<Usuario>{
+    return this.http.post<Usuario>(`${this.apiUrl}/login`,usuario).pipe(
+      tap(response=>{
+        sessionStorage.setItem(usuario_key, JSON.stringify(response))
       })
-    );
+    )
   }
-  logout(){
-    this.isAut.set(null);
+  logout():void{
+    sessionStorage.removeItem(usuario_key);
+    this.router.navigate(['/login'])
   }
-  public islogged(){
-    return this.isAut()
+  islogged(): boolean{
+    const user = sessionStorage.getItem(usuario_key);
+    return user ? true : false
   }
 }

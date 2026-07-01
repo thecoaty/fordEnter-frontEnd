@@ -1,11 +1,12 @@
 import { Component, inject, signal } from '@angular/core';
 import { AuthService } from '../../services/auth';
 import { Router } from '@angular/router';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [FormsModule, NgIf],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
@@ -15,34 +16,23 @@ export class Login {
 
   constructor(private authService: AuthService, private router: Router){}
   
-  mensagemErro = signal<string | null> (null);
-  carregando = signal<boolean>(false);
-  private fb = inject(FormBuilder);
-  
-  loginForm = this.fb.group({
-    name: ['', [Validators.required]],
-    password: ['', [Validators.required]]
-  });
+  usuario = {
+    nome: '',
+    senha: '' 
+  }
+
+  mensagemErro : string | null = null;
 
   onSubmit(){
-    if(this.loginForm.invalid) return;
-
-    this.carregando.set(true);
-    this.mensagemErro.set(null);
-    const {name, password} = this.loginForm.value;
-
-    this.authService.login(name!, password!).subscribe({
-      next: (usuario)=>{
-        this.carregando.set(false)
-        this.router.navigate(["/dashboard"]);
+    this.mensagemErro = null;
+    this.authService.login(this.usuario).subscribe({
+      next:(response)=>{
+        this.router.navigate(["/home"]);
       },
-      error: (err) =>{
-        this.carregando.set(false);
-        const erroApi = err.error?.menssage;
-        this.mensagemErro.set(erroApi);
+      error:(err) =>{
+        this.mensagemErro = err.error.message || "Usuario ou senha incorretos"
       }
     })
     
   }
-
 }
