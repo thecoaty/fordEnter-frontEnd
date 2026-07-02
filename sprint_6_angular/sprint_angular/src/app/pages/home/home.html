@@ -1,10 +1,12 @@
-<h1>
-    Bem vindo
-</h1>
+<main>
+    <app-aside-nav/>
 
-<span (click)="switchElement()">O</span>
-<nav *ngIf="showElement">
-    <a href="/home">Home</a>
-    <a href="/dashboard">Dashboard</a>
-    <button (click)="logout()">Logout</button>
-</nav>
+    <div class="content-container">
+        <div class="content">
+            <img class="fordlogo" src="ford.png" alt="ford logo">
+            <h1>Bem vindo! Admin</h1>
+            <p>Acesse a <a href="/dashboard">dashboard </a></p>
+            
+        </div>
+    </div>
+</main>

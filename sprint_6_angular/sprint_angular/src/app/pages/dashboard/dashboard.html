@@ -1,1 +1,68 @@
-<p>dashboard works!</p>
+<main>
+    <app-aside-nav></app-aside-nav>
+    <div class="dashboard-container">
+        <div class="dashboard">
+            <h1>Dashboard da Ford</h1>
+            <div class="dashboard-cards">
+                <div class="card">
+                    <label for="veiculo">Veículo</label>
+                    <select id="veiculo" name="veiculo" (change)="onVehicleChange($event)">
+                    <option *ngFor="let car of vehicles" [value]="car.id">
+                        {{car.vehicle}}
+                    </option>
+                    </select>
+                </div>
+
+                <div class="card shadow-indicator">
+                    <span class="card-title">Total de Vendas</span>
+                    <span class="card-value blue-text">{{selectedVehicle?.volumetotal}}</span>
+                    <span class="card-unit">Unid.</span>
+                </div>
+
+                <div class="card shadow-indicator">
+                    <span class="card-title">Conectados</span>
+                    <span class="card-value blue-text">{{selectedVehicle?.connected}}</span>
+                    <span class="card-unit">Unid.</span>
+                </div>
+
+                <div class="card shadow-indicator">
+                    <span class="card-title">Update Software</span>
+                    <span class="card-value blue-text">{{selectedVehicle?.softwareUpdates}}</span>
+                    <span class="card-unit">Unid.</span>
+                </div>
+            </div>
+
+            <div class="car-container">
+                <img [src]="selectedVehicle?.img" [alt]="selectedVehicle?.vehicle" class="car-image">
+            </div>
+
+            <div class="table-container">
+                <table class="custom-table">
+                    <thead>
+                    <tr>
+                        <th>Código - Vin</th>
+                        <th>Odômetro</th>
+                        <th>Nível de Combustível</th>
+                        <th>Status</th>
+                        <th>Lat.</th>
+                        <th>Long.</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" [(ngModel)]="vinCode" placeholder="Digite o Código">
+                            <button (click)="verifyVin()">enviar</button>
+                        </td>
+                        <td>{{searchedVin?.odometro}}</td>
+                        <td>{{searchedVin?.nivelCombustivel}}</td>
+                        <td class="status-on">{{searchedVin?.status}}</td>
+                        <td>{{searchedVin?.lat}}</td>
+                        <td>{{searchedVin?.long }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+        </div>
+    </div>
+</main>

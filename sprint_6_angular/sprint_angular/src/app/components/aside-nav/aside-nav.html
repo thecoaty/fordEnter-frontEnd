@@ -1,0 +1,8 @@
+<aside>
+    <button class="switch-button" (click)="switchElement()" [ngClass]="{'background-btn':showElement}">≡</button>
+    <nav class="nav-container" *ngIf="showElement">
+        <a class="nav-item" href="/home">Home</a>
+        <a class="nav-item" href="/dashboard">Dashboard</a>
+        <button class="nav-item nav-button" (click)="logout()">⍈Logout</button>
+    </nav>
+</aside>
